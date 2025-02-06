@@ -13,8 +13,16 @@
     <p>
         <a asp-controller="Login" asp-action="Index" class="btn btn-primary animated-button m-2">Login</a>
         <a asp-controller="Register" asp-action="Index" class="btn btn-secondary animated-button m-2">Register</a>
-        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-success animated-button m-2">Dashboard</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Dashboard" asp-action="Index" class="btn btn-success animated-button m-2">Dashboard</a>
+        }
+        else
+        {
+            <a asp-controller="Login" asp-action="Index" class="btn btn-success animated-button m-2">Dashboard</a>
+        }
     </p>
+
 </div>
 
 @section Scripts {
